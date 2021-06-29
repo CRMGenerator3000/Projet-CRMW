@@ -25,8 +25,10 @@ Chose à faire pour :
 
 - Avoir un système de communication
 - Mettre au clair toutes les infos et demandes de potentiel futurs utilisateurs
-- Mettre en place le langage UML
+- Mettre en place des doc UML
 - Mise en place de l'équipe et des rôles de chacun
+- Mise en place des différentes branches
+- Mise en place de la base de donnée
 
 
 
