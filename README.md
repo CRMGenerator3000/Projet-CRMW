@@ -1,4 +1,5 @@
-# Logiciel de gestion de devis
+# Logiciel CRM web
+
 Description :
 
 ​	Projet de logiciel informatique de gestion de devis pour micro-entreprises (pas plus de 4-5 personnes afin d'éviter à utiliser des systèmes de gestion administrative)
