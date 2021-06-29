@@ -15,7 +15,7 @@ Pour un tel projet il faut avoir :
 
 Pour chacune des parties, nous pensons utiliser respectivement comme langage :
 
-- SQL
+- SQL / mongoDB
 - JavaScript
 - Java
 
