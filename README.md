@@ -10,6 +10,7 @@ Pour un tel projet il faut avoir :
 - Une base de donnée 
 - Une interface utilisateur web
 - Une partie interne de calcul
+- Une partie administration
 
 
 
