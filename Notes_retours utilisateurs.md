@@ -21,7 +21,7 @@
 
 
 
-**En ce qui concerne la création des devis : **
+**En ce qui concerne la création des devis :**
 
 - il y a moyen de mettre une référence à un preset de devis, afin de préformuler le devis en ce qui concerne les texte principaux
 - Il existe aussi des preset pour ajouter des groupes de produits ou services sans les ajouter à la main
