@@ -107,13 +107,12 @@ L'enregistrement se suivra le schéma suivant :
   - Définition du forma si cela en à besoin (notament les dates et les prix)
 - Vérification que sur la facture scanée les données sont bien enregistré
 
-Le preset de facture sera donc compté comme nouveau pour un nombre d'utilisation déterminée par l'utilisateur
+Le preset de facture sera donc compté comme nouveau pour un nombre d'utilisation déterminée par l'utilisateur **(Je ne sais pas pourquoi j'ai mis cette phrase, cela à du avoir une importance)**
 
 ​	<u>Partie lecture de facture</u>
 
-La lecture d'un preset "nouveau" suivra le schéma suivant :
+La lecture d'un preset "nouveau" suivra le schéma suivant : **(je ne vois plus en quoi cela devrait changer)**
 
-- Ajout de facture
 - Scan de la facture
 - Choix du client (choix du preset si le client possède plusieurs types de factures différentes)
 - Vérification que les champs sont bien enregistrés
