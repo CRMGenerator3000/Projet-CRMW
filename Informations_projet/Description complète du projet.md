@@ -120,6 +120,8 @@ Cet outil doit répondre à plusieurs critères :
 - Ajouter à la main des lignes ou saut de page pour séparer groupes de produit/service
 - Remplissage automatique des informations de l'utilisateur
 - Création automatique d'un dossier avec numéro de dossier et état par défaut "brouillon", ou "devis en attente" si le mail à été envoyé
+- A la fin de la création du devis, ce dernier est sous forma PDF et est envoyé par mail, téléchargé ou imprimé.
+  Il peut être ré-accessible à tout moment dans le dossier.
 
 **<u>Partie à valider</u>**
 
