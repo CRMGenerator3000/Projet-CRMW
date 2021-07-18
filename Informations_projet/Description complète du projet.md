@@ -101,7 +101,11 @@ Cet outil doit répondre à plusieurs critères :
 - Les Mail automatique :
   - Le mail est pré-enregistré et contient des champs variables et des champs fixes,  lors de l'envoi du mail, les champs variables sont automatiquement rempli en fonction du client et du contact.
   - Le mail doit pouvoir être modifiable si besoin (si il y a des erreurs, des précision ou changement à faire pour des clients spécifique)
-- Tchat de discussion utilisateur/client pour négocier ou corriger le devis
+- Le client, lorsqu'il reçois le mail, ce dernier possède un lien qui redirige vers le devis, sur cette page il y a :
+  - Le lien de la page ne doit pas permettre de retrouver d'autres devis
+  - Un bouton pour accepter ou refuser le devis
+  - Une zone de tchat pour discuter ou négocier le devis avec l'utilisateur 
+- **<u>A vérifier du comportement voulu lorsque le devis est changé suite à des négociations ou discussions</u>**
 
 
 
@@ -213,7 +217,6 @@ Cette fonctionnalité n'est pas une fonctionnalité prioritaire !
   - D'autres états peuvent être ajoutés, ce ne sont que des exemples.
     Un dossier n'a qu'un état à la fois, et n'est pas sensé revenir en arrière.
     **<u>Voir si la liste des état est bonne</u>**
-
 - L'historique des états avec les dates
 - Liste d'étiquettes
 
@@ -268,21 +271,30 @@ Un produit est stocké avec ces informations :
 - Lien du fournisseur/base de donnée ou autre pour retrouver le prix du produit
 - Nom du produit
 - Description du produit et/ou de son utilisation
+- Texte pré-défini qui sera écrit dans un devis (pouvant être modifié manuellement sur le devis sans changer le texte enregistré)
 - Prix fournisseur
 - Marge de base
-- Prix après marge
+- Prix HT après marge (la taxe n'est calculé que lors du devis en fonction de la taxe à appliquer)
+
+
+
+Les références fournisseur ne doivent pas être visible par les clients  de l'utilisateur afin que ce dernier ne puisse pas faire jouer la  concurrence ou calculer la marge faite sur le produit. C'est pour cela  qu'il y a une référence fournisseur et une référence utilisateur.
+ L'utilisateur va montrer ses références à lui, mais dans la base de donnée il faut que les deux références soient présentes.
+
+
 
 **<u>Partie à valider</u>**
 
 
 
-**Information sur les services** 
+### **Information sur les services** 
 
 - Nom du service 
 - Référence utilisateur
 - Description
 - Prix minimal en dessous duquel le service n'est pas  rentable
 - Marge
+- Prix HT après marge (la taxe n'est calculé que lors du devis en fonction de la taxe à appliquer)
 
 
 
@@ -415,9 +427,52 @@ graph TD
 
 
 
+# Brouillon
 
 
 
+### Système de relance
+
+- Il y a dans les paramètres deux choses :
+  - Le temps par défaut avant un mail de relance
+    - Temps en jours ou mois
+    - 0 si il n'y a pas de relance
+  - Le preset de mail
+  - Ces deux choses peuvent être édités dans le dossier si des adaptations doivent pouvoir être faites
+
+La relance des clients est de deux manières possibles : 
+- Relance automatique 
+- Relance manuelle individuelle
+- Relance manuelle groupée
+
+La relance automatique est un mail automatiquement créé qui est envoyé au client avec le devis à l'intérieur. Dans le devis il y a les informations du client ou du contact. (il faut que l'utilisateur puisse définir que par exemple; le nom de l'entreprise visée soit marquée)
+
+La relance manuelle individuelle est un simple bouton pour relancer via soit un mail pré-défini soit un un mail perso, celle-ci se fait dans un dossier pour relancer ce dossier.
+
+La relance manuelle groupée est un bouton permettant de relancer tout les dossiers sélectionnés
+
+
+il faudrait que l'utilisateur mette son texte pré-défini et mette des "codes" dans son texte pour les endroits que le logiciel va remplir pour y mettre les informations des clients.
+
+Exemple :
+Ce que l'utilisateur marque :
+```
+Bonjour %nom_entreprise%
+Je vous contact pour vous dire que vous n'avez toujours pas rempli le devis.
+Le lien vers le devis est le suivant : %lien_devis%
+
+Le devis est daté du %date_devis%
+```
+La date du devis serait donc la dernière modification du devis
+
+Ce qui sera envoyé sera donc :
+```
+Bonjour CRMGenerator3000
+Je vous contact pour vous dire que vous n'avez toujours pas rempli le devis.
+Le lien vers le devis est le suivant : Lien
+
+Le devis est daté du 14/10/2020
+```
 
 
 
