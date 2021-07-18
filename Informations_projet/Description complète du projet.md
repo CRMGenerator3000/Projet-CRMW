@@ -105,7 +105,7 @@ Cet outil doit répondre à plusieurs critères :
   - Le lien de la page ne doit pas permettre de retrouver d'autres devis
   - Un bouton pour accepter ou refuser le devis
   - Une zone de tchat pour discuter ou négocier le devis avec l'utilisateur 
-- **<u>A vérifier du comportement voulu lorsque le devis est changé suite à des négociations ou discussions</u>**
+- **<u>A vérifier du comportement voulu lorsque le devis est changé suite à des négociations ou discussions (Si on renvoi un mail ou si c'est juste le document dans le premier mail qui change)</u>**
 
 
 
@@ -115,7 +115,7 @@ Cet outil doit répondre à plusieurs critères :
 
 ### **Fonctionnalités sur la création de devis**
 
-- [Preset](#schéma-de-création-d'un-devis) des informations clients
+- Preset des [informations clients](#informations-d'un-client)
 - Modifier les informations clients après le preset 
   Ou ajouter les informations à la main si le client n'existe pas
 - Preset de groupe de ligne
@@ -126,6 +126,7 @@ Cet outil doit répondre à plusieurs critères :
 - Création automatique d'un dossier avec numéro de dossier et état par défaut "brouillon", ou "devis en attente" si le mail à été envoyé
 - A la fin de la création du devis, ce dernier est sous forma PDF et est envoyé par mail, téléchargé ou imprimé.
   Il peut être ré-accessible à tout moment dans le dossier.
+- [Schéma de création d'un devis](#schéma-de-création-d'un-devis)
 
 **<u>Partie à valider</u>**
 
@@ -246,7 +247,42 @@ Ces informations sont utilisés pour remplir automatiquement avec les preset
 
 
 
+### Informations utilisateur
+
+Ces informations sont utilisés pour être disposés dans les devis ou lettres, elles sont modifiables au cas par cas si certains devis ou lettres en ont besoin et sont modifiable pour le global dans les paramètres. Elles sont utiles si le client à besoin de recontacter l'utilisateur et sont impérative dans le cas d'un devis.
+Les informations sont les suivantes :
+
+- Nom de l'entreprise
+- Informations de contact
+  - Adresse de contact
+  - Email
+  - Nom 
+  - Prénom
+
+
+
 ### **Informations d'une ligne d'un devis**
+
+#### Les différents types de lignes
+
+​	**Ligne simple** 
+Une ligne simple représente un produit ou un service, si l'utilisateur rempli le nom du produit ou sa référence, le logiciel doit pouvoir remplir automatiquement les informations qui sont en lien.
+
+Si le produit n'appartient pas à la base de donnée alors il peut remplir les informations à la main.
+
+​	**Saut de page**
+Permet de mettre les lignes suivantes sur une page supplémentaire
+
+​	**Groupe de ligne**
+Preset de lignes simple, saut de page ou groupe de ligne permettant d'ajouter rapidement des groupes de produit/service pouvant être régulièrement utilisés
+
+Les groupes de lignes sont éditables dans les settings
+
+
+
+
+
+#### Informations pour un produit
 
 - Référence du produit (référence que l'utilisateur à donné et non la référence fournisseur)
 - Description du produit/service ainsi qu'une description pour sa pause ou la méthode utilisé
@@ -256,6 +292,7 @@ Ces informations sont utilisés pour remplir automatiquement avec les preset
   - **<u>Question sur les marges : si on met une marge sur l'ensemble du devis, cela retire les marges individuelles ou pas ?</u>**
 - Réduction individuelle par produit 
   - possible d'ajouter une réduction supplémentaire pour l'ensemble du devis dans la fin du processus de création du devis
+- Prix TTC **<u>Question : Seul le prix TTC est affiché sur le PDF ?</u>**
 
 **<u>Partie à valider</u>**
 
@@ -479,6 +516,25 @@ Le devis est daté du 14/10/2020
 
 
 
+
+### Création des devis et gestion de dossier
+
+Proposer la sauvegarde des champs si un client non répertorié est indiqué.
+
+Proposer la sauvegarde des nouveaux contact.
+
+Avoir une auto-complétion pour l'écriture des contact d'une entreprise, de base cela n'en écrit aucun lors de l'écriture du preset du client, l'utilisateur va donc noter à quel contact écrire.
+
+
+
+
+
+### Settings
+
+Avoir dans les settings :
+
+- la gestion des lignes de groupes
+- 
 
 
 
