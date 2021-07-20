@@ -118,15 +118,17 @@ Cet outil doit répondre à plusieurs critères :
 - Preset des [informations clients](#informations-d'un-client)
 - Modifier les informations clients après le preset 
   Ou ajouter les informations à la main si le client n'existe pas
-- Preset de groupe de ligne
-  - Une ligne étant un produit ou un service
-    Un preset de groupe de ligne permet d'ajouter plusieurs lignes à la fois avec marges et/ou réductions
 - Ajouter à la main des lignes ou saut de page pour séparer groupes de produit/service
 - Remplissage automatique des informations de l'utilisateur
 - Création automatique d'un dossier avec numéro de dossier et état par défaut "brouillon", ou "devis en attente" si le mail à été envoyé
 - A la fin de la création du devis, ce dernier est sous forma PDF et est envoyé par mail, téléchargé ou imprimé.
   Il peut être ré-accessible à tout moment dans le dossier.
 - [Schéma de création d'un devis](#schéma-de-création-d'un-devis)
+- Après la création d'un devis, si le client n'existe pas dans la base de donnée et/ou que les contact non plus, alors une fenêtre propose de sauvegarder ces informations avec la possibilité de sélectionner quoi enregistrer
+  - Les choix seront :
+    - Enregistrer le client ou non (ne pas l'enregistrer ferait perdre aussi les informations de contact)
+    - Si le client est enregistré alors il peut choisir quel contact enregistrer aussi (il peut en choisir aucun, comme qu'un certain nombre, ou bien tous)
+    - Si le client est enregistré mais que les contact  ne le sont pas, cela ne pose pas de soucis, lorsque les informations seront utilisés pour former un nouveau devis, les informations de contact ne seront juste pas présente..
 
 **<u>Partie à valider</u>**
 
@@ -141,7 +143,7 @@ Cet outil doit répondre à plusieurs critères :
 
 **<u>Partie à valider</u>**
 
-
+**TODO : là où j'en suis sur la retranscription dans les backlogs**
 
 ### **Fonctionnalités sur la gestion des stock**
 
@@ -450,7 +452,37 @@ graph TD
 	Def --> Retro[Envoi de la facture aux développeur pour une amélioration du système]
 ```
 
+### Etat d'un dossier
 
+
+
+- Brouillon
+- devis en attente
+- devis accepté
+- commande en cours de réalisation
+- commande réalisée
+- Commande payée
+- Commande annulée
+
+```mermaid
+stateDiagram-v2
+	[*] --> Brouillon
+	Brouillon --> Créé
+	
+	state Créé {
+	A --> Attente : Mail envoyé
+	Attente --> Accepté : Devis accepté par le client
+	Accepté --> Realisation : La réalisation du devis à commencé
+	Realisation --> Realisé : La réalisation et terminée, en attente du paiement
+	Realisé --> Payé : Réalisation terminée et le client à payé
+	}
+	
+```
+
+
+
+
+	
 
 
 
@@ -526,6 +558,14 @@ Proposer la sauvegarde des nouveaux contact.
 Avoir une auto-complétion pour l'écriture des contact d'une entreprise, de base cela n'en écrit aucun lors de l'écriture du preset du client, l'utilisateur va donc noter à quel contact écrire.
 
 
+
+
+
+### Random
+
+- Le logiciel doit pouvoir récupérer les informations des produits à partir de l'ancien logiciel utilisé afin d'améliorer le passage de l'un à l'autre
+
+- le logiciel doit pouvoir envoyer des mail
 
 
 
