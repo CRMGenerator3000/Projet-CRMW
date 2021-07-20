@@ -143,7 +143,7 @@ Cet outil doit répondre à plusieurs critères :
 
 **<u>Partie à valider</u>**
 
-**TODO : là où j'en suis sur la retranscription dans les backlogs**
+
 
 ### **Fonctionnalités sur la gestion des stock**
 
@@ -153,8 +153,11 @@ Cette fonctionnalité n'est pas une fonctionnalité prioritaire !
   - il est ajouté dans les stock
   - il n'est pas considéré comme faisant parti des stock si la commande qui est en lien est encore valide
   - si la commande est annulé et que le produit n'est pas renvoyé alors il passe comme disponible dans le stock
+- Si un devis utilise des produits qui n'ont pas étés commandés alors ça le retire de la liste des stock(ça les comptabilise comme utilisé)
 
-**<u>Partie à valider</u>**
+**<u>Partie à valider : Je ne sais pas si c'est réellement une bonne idée de mettre en place cela, cela peut être un peu hasardeux à mettre en place. (cette fonctionnalité n'a pas été divulgé par l'utilisateur donc ce n'est pas du tout une priorité)</u>**
+
+**TODO : A mettre sur le backlogs si c'est la fonctionnalité est retenue**
 
 
 
@@ -164,9 +167,7 @@ Cette fonctionnalité n'est pas une fonctionnalité prioritaire !
 - Les prix fournisseurs doivent être actualisé suivant une période de temps défini (soit dans le code soit dans les paramètres)
 - **<u>A valider :</u>** Historique des prix (pour pouvoir vérifier et éviter des changement brusque de certains fournisseurs ou autre)
 - Exporter l'ensemble des données des produits et/ou services sous forma Excel 
-  - Pouvoir sélectionner les quels types de données récupérer :
-    - Produit et/ou services
-    - sélectionner les informations à exporter (Référence fournisseur, prix fournisseur, marge, prix minimal, description, etc...)
+  - [Pouvoir sélectionner les quels types de données récupérer](#export-des-information-produit/service)
 
 **<u>Partie à valider</u>**
 
@@ -178,12 +179,109 @@ Cette fonctionnalité n'est pas une fonctionnalité prioritaire !
 - [Scanner les factures, définir quel preset, et cela ressort les bon résultats](#lecture-d'une-facture)
 - Chaque facture scannée est envoyé sous un bon forma au comptable
 
+**<u>Partie à valider</u>**
+
+
+
+### Fonctionnalités du système de relance
+
+- Il y a dans les paramètres plusieurs choses :
+  - Modification du temps de relance automatique 
+  - Modification du mail automatique
+  - Le nombre de mail avant la dernière relance
+
+La relance des clients est de deux manières possibles : 
+
+- Relance automatique 
+- Relance manuelle individuelle
+- Relance manuelle groupée
+
+Dans chaque dossiers, il y a la possibilité de visualiser le nombre de mail de relance.
+
+Il faut la possibilité d'avoir un mail de dernière relance avant de menacer de procédure judiciaire
+
+
+
+#### Relance automatique 
+
+La relance automatique est un mail automatiquement créé qui est envoyé au client avec le devis à l'intérieur. 
+
+Le mail d'envoi est le mail automatique qui est enregistré dans les paramètres
+
+Dans chaque dossier, l'utilisateur à la possibilité de choisir un temps de relance différend de celui indiqué dans les paramètres.
+
+
+
+
+
+#### Relance manuelle individuelle
+
+La relance manuelle individuelle est un bouton dans le détail d'un dossier. 
+
+La relance manuelle individuelle réinitialise le temps avant la prochaine relance automatique.
+
+- Par exemple si le premier mail de dossier à été envoyé le 1er janvier
+- Le timer de base est de 1 mois, cela veut dire que la relance se fera le 1er Février
+- Cependant si l'utilisateur fait une relance manuelle, le 15 janvier, le mail de relance suivant sera le 15 Février
+
+Lorsque l'utilisateur fait une relance manuelle individuelle, alors il a deux choix possible :
+
+- Envoyer le mail générique
+- Modifier ce dernier pour faire un mail spécifique
+
+
+
+#### Relance manuelle groupée
+
+Pour pouvoir relancer un mail groupé, l'utilisateur doit sélectionner plusieurs dossiers (en cochant des cas à côté de chaque dossier par exemple) et clique sur un bouton pour faire la relance.
+
+Le temps de relance est affecté de la même façon que pour la relance manuelle individuelle.
+
+Le mail peut être modifié mais cela doit être fait avec prudence car c'est le même mail qui sera envoyé(en prenant en compte l'encodage du texte)
+
+
+
+
+
+
+
+#### Encodage du mail 
+
+
+il faudrait que l'utilisateur mette son texte pré-défini et mette des "codes" dans son texte pour les endroits que le logiciel va remplir pour y mettre les informations des clients.
+
+Exemple :
+Ce que l'utilisateur marque :
+
+```
+Bonjour %nom_entreprise%
+Je vous contact pour vous dire que vous n'avez toujours pas rempli le devis.
+Le lien vers le devis est le suivant : %lien_devis%
+
+Le devis est daté du %date_devis%
+```
+
+La date du devis serait donc la dernière modification du devis
+
+Ce qui sera envoyé sera donc :
+
+```
+Bonjour CRMGenerator3000
+Je vous contact pour vous dire que vous n'avez toujours pas rempli le devis.
+Le lien vers le devis est le suivant : Lien
+
+Le devis est daté du 14/10/2020
+```
+
+
+
 
 
 ### **Fonctionnalités autre**
 
-- Pouvoir générer des mail automatique ou générique à tout les anciens client pour les remercier (en évitant de le renvoyer à ceux l'ayant déjà reçus)
+- [Pouvoir générer des mail automatique ou générique à tout les anciens client pour les remercier](#envoi-de-mail-de-remerciement) (en évitant de le renvoyer à ceux l'ayant déjà reçus)
 - Pouvoir générer des lettres/colis automatiquement en y mettant des goodies pour les envoyer aux anciens clients (en évitant les doublons)
+  - **<u>A vérifier du comportement voulu précisément : Cela fait juste le texte des lettres et colis ou cela fait tout en faisant appel à un service externe</u>**
 - Lier le compte bancaire de l'entreprise pour : 
   - Extraire les informations des entrées et sorties pour afficher le chiffre d'affaire
   - Faire un suivis des entrées et sorties de l'entreprise
@@ -192,7 +290,7 @@ Cette fonctionnalité n'est pas une fonctionnalité prioritaire !
   - Aux frais de l'entreprise
   - Aux frais du client
 
-
+**<u>Partie à valider</u>**
 
 
 
@@ -208,6 +306,10 @@ Cette fonctionnalité n'est pas une fonctionnalité prioritaire !
 - Titre de dossier (Titre du devis)
 - Informations du client
 - Devis en lien avec le dossier
+- Le nombre de relance effectuée
+- Le mail de preset (par défaut le mail est copié par celui dans les paramètres)
+- Le temps de relance
+- La date de la dernière relance (le premier mail envoyé lors de la création du dossier est considéré comme une relance)
 - L'état du dossier 
 
   - Brouillon
@@ -216,6 +318,7 @@ Cette fonctionnalité n'est pas une fonctionnalité prioritaire !
   - commande en cours de réalisation
   - commande réalisée
   - Commande payée
+  - Commande non payée (Le dossier passe dans cette case si la dernière relance est envoyée)
   - Commande annulée
   - D'autres états peuvent être ajoutés, ce ne sont que des exemples.
     Un dossier n'a qu'un état à la fois, et n'est pas sensé revenir en arrière.
@@ -470,19 +573,43 @@ stateDiagram-v2
 	Brouillon --> Créé
 	
 	state Créé {
-	A --> Attente : Mail envoyé
+	[*] --> Attente : Mail envoyé
 	Attente --> Accepté : Devis accepté par le client
 	Accepté --> Realisation : La réalisation du devis à commencé
 	Realisation --> Realisé : La réalisation et terminée, en attente du paiement
 	Realisé --> Payé : Réalisation terminée et le client à payé
+	Realisé --> NonPayé : Si la dernière relance à été envoyé
 	}
+	Créé --> annulé
+	
+```
+
+### Export des informations produit/service
+
+
+
+```mermaid
+graph TD
+	BtnExp[Cliquer sur le bouton d'export] --> ChxPS[Choix du produit et/ou service]
+	ChxPS --> ChxTT[Choix : Prendre le tout/Faire une sélection]
+	ChxTT --> ChxExp[Choix de la façon d'exporter : Mail/Télechargement]
 	
 ```
 
 
 
+	### Envoi de mail de remerciement
 
-	
+
+
+```mermaid
+graph TD
+	BtnRem[Bouton de remerciement] --> ChxClt[Choix des clients à remercier]
+	ChxClt --> ChxMess[Choix entre le message de preset ou de le modifier pour l'occation]
+	ChxMess --> Envoi
+```
+
+
 
 
 
@@ -499,49 +626,6 @@ stateDiagram-v2
 # Brouillon
 
 
-
-### Système de relance
-
-- Il y a dans les paramètres deux choses :
-  - Le temps par défaut avant un mail de relance
-    - Temps en jours ou mois
-    - 0 si il n'y a pas de relance
-  - Le preset de mail
-  - Ces deux choses peuvent être édités dans le dossier si des adaptations doivent pouvoir être faites
-
-La relance des clients est de deux manières possibles : 
-- Relance automatique 
-- Relance manuelle individuelle
-- Relance manuelle groupée
-
-La relance automatique est un mail automatiquement créé qui est envoyé au client avec le devis à l'intérieur. Dans le devis il y a les informations du client ou du contact. (il faut que l'utilisateur puisse définir que par exemple; le nom de l'entreprise visée soit marquée)
-
-La relance manuelle individuelle est un simple bouton pour relancer via soit un mail pré-défini soit un un mail perso, celle-ci se fait dans un dossier pour relancer ce dossier.
-
-La relance manuelle groupée est un bouton permettant de relancer tout les dossiers sélectionnés
-
-
-il faudrait que l'utilisateur mette son texte pré-défini et mette des "codes" dans son texte pour les endroits que le logiciel va remplir pour y mettre les informations des clients.
-
-Exemple :
-Ce que l'utilisateur marque :
-```
-Bonjour %nom_entreprise%
-Je vous contact pour vous dire que vous n'avez toujours pas rempli le devis.
-Le lien vers le devis est le suivant : %lien_devis%
-
-Le devis est daté du %date_devis%
-```
-La date du devis serait donc la dernière modification du devis
-
-Ce qui sera envoyé sera donc :
-```
-Bonjour CRMGenerator3000
-Je vous contact pour vous dire que vous n'avez toujours pas rempli le devis.
-Le lien vers le devis est le suivant : Lien
-
-Le devis est daté du 14/10/2020
-```
 
 
 
@@ -574,7 +658,16 @@ Avoir une auto-complétion pour l'écriture des contact d'une entreprise, de bas
 Avoir dans les settings :
 
 - la gestion des lignes de groupes
-- 
+  - Pouvoir utiliser des lignes simples, des saut de page ainsi que des lignes de groupes pré-existante
+  - Deux lignes de groupes ne doivent pas s'appeler l'une à l'autre, un message d'erreur est affiché si c'est le cas lors de enregistrement de la ligne de groupe
+- Gestion de relance
+  - Le temps par défaut avant un mail de relance
+    - Temps en jours ou mois
+    - 0 si il n'y a pas de relance
+  - Le preset de mail
+  - Ces deux choses ci dessus peuvent être édités dans le dossier si des adaptations indivduelles doivent pouvoir être faites
+  - Le nombre de relance avant la dernière
+  - 
 
 
 
