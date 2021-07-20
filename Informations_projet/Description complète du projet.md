@@ -124,11 +124,13 @@ Cet outil doit répondre à plusieurs critères :
 - A la fin de la création du devis, ce dernier est sous forma PDF et est envoyé par mail, téléchargé ou imprimé.
   Il peut être ré-accessible à tout moment dans le dossier.
 - [Schéma de création d'un devis](#schéma-de-création-d'un-devis)
-- Après la création d'un devis, si le client n'existe pas dans la base de donnée et/ou que les contact non plus, alors une fenêtre propose de sauvegarder ces informations avec la possibilité de sélectionner quoi enregistrer
+- Après la création d'un devis, si le client n'existe pas dans la base de donnée, alors une fenêtre propose de sauvegarder ces informations avec la possibilité de sélectionner quoi enregistrer
   - Les choix seront :
     - Enregistrer le client ou non (ne pas l'enregistrer ferait perdre aussi les informations de contact)
     - Si le client est enregistré alors il peut choisir quel contact enregistrer aussi (il peut en choisir aucun, comme qu'un certain nombre, ou bien tous)
     - Si le client est enregistré mais que les contact  ne le sont pas, cela ne pose pas de soucis, lorsque les informations seront utilisés pour former un nouveau devis, les informations de contact ne seront juste pas présente..
+- Proposer la sauvegarde des nouveaux contact.
+- Avoir une auto-complétion pour l'écriture des contact d'une entreprise, de base cela n'en écrit aucun lors de l'écriture du preset du client, l'utilisateur va donc noter à quel contact écrire.
 
 **<u>Partie à valider</u>**
 
@@ -289,6 +291,10 @@ Le devis est daté du 14/10/2020
 - Il faut pouvoir générer des factures de déplacement ces derniers sont :
   - Aux frais de l'entreprise
   - Aux frais du client
+- Le logiciel doit pouvoir récupérer les informations des produits à partir de l'ancien logiciel utilisé afin d'améliorer le passage de l'un à l'autre
+- le logiciel doit pouvoir envoyer des mail 
+  - de façon générale, l'ensemble des mails envoyé par le logiciel passeront par cette fonctionnalité
+  - Le logiciel doit  pouvoir aussi prendre un nom de domaine spécifique ou général (à voire)
 
 **<u>Partie à valider</u>**
 
@@ -635,11 +641,7 @@ graph TD
 
 ### Création des devis et gestion de dossier
 
-Proposer la sauvegarde des champs si un client non répertorié est indiqué.
 
-Proposer la sauvegarde des nouveaux contact.
-
-Avoir une auto-complétion pour l'écriture des contact d'une entreprise, de base cela n'en écrit aucun lors de l'écriture du preset du client, l'utilisateur va donc noter à quel contact écrire.
 
 
 
@@ -647,13 +649,12 @@ Avoir une auto-complétion pour l'écriture des contact d'une entreprise, de bas
 
 ### Random
 
-- Le logiciel doit pouvoir récupérer les informations des produits à partir de l'ancien logiciel utilisé afin d'améliorer le passage de l'un à l'autre
-
-- le logiciel doit pouvoir envoyer des mail
+- 
 
 
 
-### Settings
+
+### Informations dans les paramètres
 
 Avoir dans les settings :
 
@@ -667,7 +668,8 @@ Avoir dans les settings :
   - Le preset de mail
   - Ces deux choses ci dessus peuvent être édités dans le dossier si des adaptations indivduelles doivent pouvoir être faites
   - Le nombre de relance avant la dernière
-  - 
+- Pouvoir choisir le mode sombre ou pas
+- 
 
 
 
