@@ -466,7 +466,7 @@ Les références fournisseur ne doivent pas être visible par les clients  de l'
 graph TD
 	linkStyle default interpolate basis
 	Devis[Devis] --> PresetC{{Inscription du preset client ?}};
-	PresetC ----> |Oui| InfoC[Informations client inscrit];
+	PresetC --> |Oui| InfoC[Informations client inscrit];
 	PresetC --> |Non| InfoCMain[Informations client inscrit à la main];
 	InfoCMain --> InfoC;
 	InfoC --> Correction[Correction des informations client];
@@ -563,30 +563,15 @@ graph TD
 
 ### Etat d'un dossier
 
-
-
-- Brouillon
-- devis en attente
-- devis accepté
-- commande en cours de réalisation
-- commande réalisée
-- Commande payée
-- Commande annulée
-
 ```mermaid
 stateDiagram-v2
 	[*] --> Brouillon
-	Brouillon --> Créé
-	
-	state Créé {
-	[*] --> Attente : Mail envoyé
+	Brouillon -->Attente : Mail envoyé
 	Attente --> Accepté : Devis accepté par le client
 	Accepté --> Realisation : La réalisation du devis à commencé
 	Realisation --> Realisé : La réalisation et terminée, en attente du paiement
 	Realisé --> Payé : Réalisation terminée et le client à payé
 	Realisé --> NonPayé : Si la dernière relance à été envoyé
-	}
-	Créé --> annulé
 	
 ```
 
@@ -604,7 +589,7 @@ graph TD
 
 
 
-	### Envoi de mail de remerciement
+### Envoi de mail de remerciement
 
 
 
@@ -630,16 +615,6 @@ graph TD
 
 
 # Brouillon
-
-
-
-
-
-
-
-
-
-### Création des devis et gestion de dossier
 
 
 
