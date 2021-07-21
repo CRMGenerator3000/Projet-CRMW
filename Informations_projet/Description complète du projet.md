@@ -624,7 +624,7 @@ graph TD
 
 ### Random
 
-- 
+- Pouvoir voir l'argent que les clients doivent payer et l'argent que l'utilisateur doit aux fournisseur
 
 
 
@@ -644,7 +644,9 @@ Avoir dans les settings :
   - Ces deux choses ci dessus peuvent être édités dans le dossier si des adaptations indivduelles doivent pouvoir être faites
   - Le nombre de relance avant la dernière
 - Pouvoir choisir le mode sombre ou pas
-- 
+-  
+
+
 
 
 
