@@ -77,7 +77,11 @@ Cet outil doit répondre à plusieurs critères :
 
 ### **Fonctionnalités du tableau de bord**
 
-- Disposition du chiffre d'affaire actuel et graphique supplémentaires pour afficher la progression du chiffre d'affaire
+- Disposition du chiffre d'affaire actuel
+  - choix de la plage de donnée à afficher
+  - Affichage CA hors taxe/ paiement 
+  - Affichage de la ligne de croissance
+  - Affichage chiffre d'affaire de chaque an
 - Des statistiques sur ses dépenses et achat à la façon d'un graphique en cascade
 
 
@@ -202,6 +206,8 @@ Dans chaque dossiers, il y a la possibilité de visualiser le nombre de mail de 
 
 Il faut la possibilité d'avoir un mail de dernière relance avant de menacer de procédure judiciaire
 
+**<u>Question : Faut t'il faire des relances automatiques si un dossier n'est pas encore accepté ou les relances sont pour des dossier en attente d'être payé ET des dossiers en attente d'être validé</u>**
+
 
 
 #### Relance automatique 
@@ -257,7 +263,7 @@ Ce que l'utilisateur marque :
 
 ```
 Bonjour %nom_entreprise%
-Je vous contact pour vous dire que vous n'avez toujours pas rempli le devis.
+Je vous contacte pour vous dire que vous n'avez toujours pas rempli le devis.
 Le lien vers le devis est le suivant : %lien_devis%
 
 Le devis est daté du %date_devis%
@@ -269,7 +275,7 @@ Ce qui sera envoyé sera donc :
 
 ```
 Bonjour CRMGenerator3000
-Je vous contact pour vous dire que vous n'avez toujours pas rempli le devis.
+Je vous contacte pour vous dire que vous n'avez toujours pas rempli le devis.
 Le lien vers le devis est le suivant : Lien
 
 Le devis est daté du 14/10/2020
@@ -315,7 +321,8 @@ Le devis est daté du 14/10/2020
 - Le nombre de relance effectuée
 - Le mail de preset (par défaut le mail est copié par celui dans les paramètres)
 - Le temps de relance
-- La date de la dernière relance (le premier mail envoyé lors de la création du dossier est considéré comme une relance)
+- Le mail de preset de la dernière relance
+- La date de la précédente relance (le premier mail envoyé lors de la création du dossier est considéré comme une relance)
 - L'état du dossier 
 
   - Brouillon
@@ -328,12 +335,13 @@ Le devis est daté du 14/10/2020
   - Commande annulée
   - D'autres états peuvent être ajoutés, ce ne sont que des exemples.
     Un dossier n'a qu'un état à la fois, et n'est pas sensé revenir en arrière.
-    **<u>Voir si la liste des état est bonne</u>**
+    **<u>Voir si la liste des état est bonne : Pas voir un service de maintenance avec état de maintenance</u>**
 - L'historique des états avec les dates
 - Liste d'étiquettes
 
   - Ces étiquettes peuvent être pour détailler l'état du dossier ou donner des précisions.
     Une étiquette peut être par exemple "Payé" si une commande est payée mais qu'elle n'est pas encore fini d'être réalisée..
+    L'accompte TODO 
 
 **<u>Partie à valider</u>**
 
@@ -347,7 +355,7 @@ Ces informations sont utilisés pour remplir automatiquement avec les preset
 - Adresse du siège de l'entreprise
 - Informations de contacts (pour chaque contact)
   - Nom et prénom du contact
-  - e-mail de contact ou adresse
+  - e-mail de contact( ou adresse)
   - Numéro de téléphone 
 - Adresse de facturation
 - Pays du client
@@ -530,7 +538,7 @@ graph TD
 
 #### Définition des zones
 
-​	
+
 
 ```mermaid
 graph TD
@@ -590,7 +598,8 @@ graph TD
 
 
 ### Envoi de mail de remerciement
-
+TODO bouton courrier pour tout avoir
+(avoir plusieurs preset de courrier : remerciement, )
 
 
 ```mermaid
@@ -618,6 +627,27 @@ graph TD
 
 
 
+### Question
+
+- Est ce que un produit à plusieurs prix fournisseur en fonction de la quantité achetée
+- Besoin d'informations sur les dates de validités d'un devis
+- Mettre une date d'invalidité et de suppression d'un devis
+- Informations de la suite de ce qu'il se passe après l'inscription des factures
+- Besoin de relancer les dossiers en attente ? pour relancer et faire accepter le devis ?
+
+
+
+### Visuel rappel (nicolas)
+
+- Produit
+  - Filtrer par fournisseur
+  - Barre de recherche
+- Page d'accueil
+  - Afficher le nombre de devis qui vont devenir invalide
+  - Afficher le nombre de factures qui vont arriver à bout de temps
+
+
+
 
 
 
@@ -625,6 +655,7 @@ graph TD
 ### Random
 
 - Pouvoir voir l'argent que les clients doivent payer et l'argent que l'utilisateur doit aux fournisseur
+- Le prix unitaire des produits d'un devis accepté ne changent pas si les prix fournisseurs changent.
 
 
 
@@ -643,8 +674,8 @@ Avoir dans les settings :
   - Le preset de mail
   - Ces deux choses ci dessus peuvent être édités dans le dossier si des adaptations indivduelles doivent pouvoir être faites
   - Le nombre de relance avant la dernière
+  - Le preset de mail de dernière relance
 - Pouvoir choisir le mode sombre ou pas
--  
 
 
 
@@ -652,3 +683,103 @@ Avoir dans les settings :
 
 
 
+
+
+```mermaid
+stateDiagram-v2
+	[*] --> Créé
+	
+	state Créé{
+		direction TB
+        Brouillon -->Attente : Mail envoyé
+        Attente --> Accepté : Devis accepté par le client
+        Accepté --> Realisation : La réalisation du devis à commencé
+        Realisation --> Realisé : La réalisation et terminée, en attente du paiement
+        Realisé --> Payé : Réalisation terminée et le client à payé
+        Realisé --> NonPayé : Si la dernière relance à été envoyé
+        
+	}
+	
+	
+```
+
+
+
+
+
+
+
+
+
+connection : 
+- email 
+- mdp 
+
+Gestion des liscences
+- avistam = 400 € /an
+
+
+Tableau de bord :
+- Affichage chiffre d'affaire
+  - choix de la plage de donnée à afficher
+  - Affichage CA hors taxe/ paiement 
+  - Affichage de la ligne de croissance
+  - Affichage chiffre d'affaire de chaque an
+- Affichage des entrées et sorties (Entrée en positif et sortie en négatif)
+- Affichage de l'objectif 
+- Affichage du ou des solde banquaire
+- affichage du montant des devis validé non réalisés
+- Affichage des factures en retard de paiement
+  - Montant total
+  - Affichage des délais de retard (par plage de jours/mois etc)
+  - Quand cliqué sur une plage, affichage des différents devis non payés
+  - Pouvoir relancer
+    - Affichage du courrier avant-envoi
+    - Liaison du courier avec les conditions générales de ventes
+    - envoi par mail
+      - Recevoir une copie du mail
+      - Lier la facture
+    - Relance par courier 
+       - Besoin de crédit pour envoyer par courier
+       - Le logiciel fait tout (à voir si il y a un service avec la poste qui existe)
+  - Historique des relances
+
+
+Dossier :
+- Saisir un accompte pour le paiement avant la réalisation du dossier
+- Choisir à qui écrire lors des discussions des devis
+- Envoi du mail avec le devis et de la note lors d'une conversation
+- Envoi d'un mail à l'utilisateur lors d'un nouveau message
+- Afficher les articles qui n'ont pas étés actualisés depuis un certain temps (délai modifiable dans les paramêtres)
+-  Lier les devis en état de commande aux commandes fournisseurs
+  - Logo coommande fournisseur pour faire les commandes aux fournisseur
+
+
+Filtres dans produits :
+- Rechercher le produit ou par fournisseur
+- 
+
+
+Commandes fournisseur gestion stock: 
+- Mettre un stock minimal pour faire des commandes
+
+Produits : 
+- Voir dans la liste : la dernière date d'actualisation
+- à partir d'un document fournisseur : actualiser automatiquement les prix de ces fournisseurs
+- Proposer à intégrer les articles qui ne sont pas dans la base de donnée
+
+Système de facture : 
+- Pouvoir prendre une photo de la facture et remplir à la main 
+
+
+  Relances : 
+  - Supplément lors de dernière relance (pénalité de retard de paiement)
+  - Afficher dans les relances, les retard de paiement
+
+
+
+Dans un dossier, cliquer sur les clients pour voir les infos et retrouver les autres devis, facture ou commandes...
+
+
+Courrier : 
+- Envoyer un mail aux clients d'un certain temps pour une vérification du matériel ou autre
