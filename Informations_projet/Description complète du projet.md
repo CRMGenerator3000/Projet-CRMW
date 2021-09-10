@@ -82,7 +82,25 @@ Cet outil doit répondre à plusieurs critères :
   - Affichage CA hors taxe/ paiement 
   - Affichage de la ligne de croissance
   - Affichage chiffre d'affaire de chaque an
-- Des statistiques sur ses dépenses et achat à la façon d'un graphique en cascade
+- Affichage des entrées et sorties (Entrée en positif et sortie en négatif)
+- Pouvoir voir l'argent que les clients doivent payer et l'argent que l'utilisateur doit aux fournisseur
+- Affichage de l'objectif 
+- Affichage du ou des solde bancaire
+- affichage du montant des devis validé non réalisés
+- Affichage des factures en retard de paiement
+  - Montant total
+  - Affichage des délais de retard (par plage de jours/mois etc)
+  - Quand cliqué sur une plage, affichage des différents devis non payés
+  - Pouvoir relancer
+    - Affichage du courrier avant-envoi
+    - Liaison du courier avec les conditions générales de ventes
+    - envoi par mail
+      - Recevoir une copie du mail
+      - Lier la facture
+    - Relance par courier 
+      - Besoin de crédit pour envoyer par courier
+      - Le logiciel fait tout (à voir si il y a un service avec la poste qui existe)
+  - Historique des relances
 
 
 
@@ -99,6 +117,9 @@ Cet outil doit répondre à plusieurs critères :
   - Chaque dossier peut être glissé d'une colonne à une autre
   - Cela sera dans un style de Github ou Trello
 - Un bouton pour relancer les clients n'ayant pas payé ou ne répondant pas à l'envoi d'un devis
+- Pouvoir supprimer des dossier (si le dossier est annulé par exemple)
+  - Demander une validation afin d'éviter les suppressions involontaires
+  - La validation pourrait se faire par la recopie du nom du dossier par exemple
 - Pouvoir sélectionner la liste des dossier pour relancer ces dossiers là et non les autres
 - Pouvoir automatiquement relancer les clients n'ayant pas payé
 - Point important à mettre sur l'ergonomie
@@ -109,6 +130,13 @@ Cet outil doit répondre à plusieurs critères :
   - Le lien de la page ne doit pas permettre de retrouver d'autres devis
   - Un bouton pour accepter ou refuser le devis
   - Une zone de tchat pour discuter ou négocier le devis avec l'utilisateur 
+- Saisir un acompte pour le paiement avant la réalisation du dossier
+- Choisir à qui écrire lors des discussions des devis
+- Envoi d'un mail lors de chaque message dors de la discussion (le mail est envoyé au receveur du message)
+- Afficher les articles qui n'ont pas étés actualisés depuis un certain temps (délai modifiable dans les paramètres)
+- Lier les devis en état de commande aux commandes fournisseurs
+  - Logo commande fournisseur pour faire les commandes aux fournisseur
+- Dans un dossier, cliquer sur les clients pour voir les infos et retrouver les autres devis, facture ou commandes...
 - **<u>A vérifier du comportement voulu lorsque le devis est changé suite à des négociations ou discussions (Si on renvoi un mail ou si c'est juste le document dans le premier mail qui change)</u>**
 
 
@@ -135,6 +163,8 @@ Cet outil doit répondre à plusieurs critères :
     - Si le client est enregistré mais que les contact  ne le sont pas, cela ne pose pas de soucis, lorsque les informations seront utilisés pour former un nouveau devis, les informations de contact ne seront juste pas présente..
 - Proposer la sauvegarde des nouveaux contact.
 - Avoir une auto-complétion pour l'écriture des contact d'une entreprise, de base cela n'en écrit aucun lors de l'écriture du preset du client, l'utilisateur va donc noter à quel contact écrire.
+- Le prix unitaire des produits d'un devis accepté ne changent pas si les prix fournisseurs changent.
+  - C'est-à-dire que, si un devis est créé ,(ou accepté TODO à valider lequel, si le verrouillage se fait lors de la création ou de l'acceptation) l'ensemble des prix des produits ou services sont verrouillés pour ce devis, cela veut dire que si le prix d'un produit ou service change, alors sur le devis, le prix ne changera pas.
 
 **<u>Partie à valider</u>**
 
@@ -159,21 +189,27 @@ Cette fonctionnalité n'est pas une fonctionnalité prioritaire !
   - il est ajouté dans les stock
   - il n'est pas considéré comme faisant parti des stock si la commande qui est en lien est encore valide
   - si la commande est annulé et que le produit n'est pas renvoyé alors il passe comme disponible dans le stock
+  - TODO info pas claire, à clarifier pour une meilleure conception du système
 - Si un devis utilise des produits qui n'ont pas étés commandés alors ça le retire de la liste des stock(ça les comptabilise comme utilisé)
-
-**<u>Partie à valider : Je ne sais pas si c'est réellement une bonne idée de mettre en place cela, cela peut être un peu hasardeux à mettre en place. (cette fonctionnalité n'a pas été divulgé par l'utilisateur donc ce n'est pas du tout une priorité)</u>**
-
-**TODO : A mettre sur le backlogs si c'est la fonctionnalité est retenue**
+- Mettre un stock minimal qui va mettre une notification visuelle ou par mail (TODO à vérifier) pour indiquer qu'il faut en recommander aux fournisseurs
 
 
 
 ### **Fonctionnalités sur la gestion des produits** et services
 
 - Chaque produit doit pouvoir être stocké dans une base de donnée avec son [ensemble d'information](#informations-sur-un-produit) 
-- Les prix fournisseurs doivent être actualisé suivant une période de temps défini (soit dans le code soit dans les paramètres)
-- **<u>A valider :</u>** Historique des prix (pour pouvoir vérifier et éviter des changement brusque de certains fournisseurs ou autre)
+- Actualisation des prix :
+  - Actualisation par le passage au logiciel d'un PDF possédant un tableau avec les produits et leurs prix
+  - Proposer à intégrer les articles du PDF qui ne sont pas dans la base de donnée (l'utilisateur peut choisir indépendamment les produit à intégrer)
+- Historique des prix 
 - Exporter l'ensemble des données des produits et/ou services sous forma Excel 
   - [Pouvoir sélectionner les quels types de données récupérer](#export-des-information-produit/service)
+- Barre de recherche : mot clés principales : Nom de produit, catégorie du produit, fournisseur (cela doit prendre en compte les fautes pour proposer des corrections pertinentes pour l'utilisateur)
+- Filtres applicables :
+  - Catégorie de produit/services
+    - Sous-catégorie (dans la catégorie peinture par exemple, la sous catégorie serait de chercher les peintures rouges)
+  - Dernière modification du prix
+- Voir dans la liste : la dernière date d'actualisation, le prix (en comptant la marge), le début de la description du produit, la référence, le nom.
 
 **<u>Partie à valider</u>**
 
@@ -184,6 +220,7 @@ Cette fonctionnalité n'est pas une fonctionnalité prioritaire !
 - [Pouvoir définir un (ou plusieurs) preset de facture pour chaque entreprise](#création-du-preset)
 - [Scanner les factures, définir quel preset, et cela ressort les bon résultats](#lecture-d'une-facture)
 - Chaque facture scannée est envoyé sous un bon forma au comptable
+- Pouvoir prendre une photo de la facture et remplir à la main (TODO actualiser les graphes en lien ci-dessus)
 
 **<u>Partie à valider</u>**
 
@@ -195,6 +232,7 @@ Cette fonctionnalité n'est pas une fonctionnalité prioritaire !
   - Modification du temps de relance automatique 
   - Modification du mail automatique
   - Le nombre de mail avant la dernière relance
+  - Le pourcentage d'augmentation des prix du devis
 
 La relance des clients est de deux manières possibles : 
 
@@ -204,7 +242,18 @@ La relance des clients est de deux manières possibles :
 
 Dans chaque dossiers, il y a la possibilité de visualiser le nombre de mail de relance.
 
-Il faut la possibilité d'avoir un mail de dernière relance avant de menacer de procédure judiciaire
+Surplus de relances
+
+  - Supplément lors de dernière relance (pénalité de retard de paiement)
+  - Afficher dans les relances, les retard de paiement
+
+
+
+**Relances amicales**
+
+- Envoyer un mail aux clients d'un certain temps pour une vérification du matériel ou autre
+
+
 
 **<u>Question : Faut t'il faire des relances automatiques si un dossier n'est pas encore accepté ou les relances sont pour des dossier en attente d'être payé ET des dossiers en attente d'être validé</u>**
 
@@ -288,19 +337,47 @@ Le devis est daté du 14/10/2020
 ### **Fonctionnalités autre**
 
 - [Pouvoir générer des mail automatique ou générique à tout les anciens client pour les remercier](#envoi-de-mail-de-remerciement) (en évitant de le renvoyer à ceux l'ayant déjà reçus)
+
 - Pouvoir générer des lettres/colis automatiquement en y mettant des goodies pour les envoyer aux anciens clients (en évitant les doublons)
   - **<u>A vérifier du comportement voulu précisément : Cela fait juste le texte des lettres et colis ou cela fait tout en faisant appel à un service externe</u>**
+  
 - Lier le compte bancaire de l'entreprise pour : 
   - Extraire les informations des entrées et sorties pour afficher le chiffre d'affaire
   - Faire un suivis des entrées et sorties de l'entreprise
   - Passer les commandes des produits
+  
 - Il faut pouvoir générer des factures de déplacement ces derniers sont :
   - Aux frais de l'entreprise
   - Aux frais du client
+  
 - Le logiciel doit pouvoir récupérer les informations des produits à partir de l'ancien logiciel utilisé afin d'améliorer le passage de l'un à l'autre
+
 - le logiciel doit pouvoir envoyer des mail 
   - de façon générale, l'ensemble des mails envoyé par le logiciel passeront par cette fonctionnalité
   - Le logiciel doit  pouvoir aussi prendre un nom de domaine spécifique ou général (à voire)
+  
+- Pouvoir se connecter et/ou se déconnecter. (connection avec email et mdp)
+
+- Gestion des licences
+
+  - Gestion des licences d'abonnement
+    - Licence gratuite de test (permanent)
+    - Licence gratuite d'essai (6 mois par exemple)
+    - Licence payante par mois 
+    - Licence payante par trimestre
+    - Licence payante par an
+    - Licence payante à vie
+
+  - Comparaison à des concurrent
+    - Evoliz = 400 € /an
+
+  
+
+
+
+
+
+
 
 **<u>Partie à valider</u>**
 
@@ -360,7 +437,8 @@ Ces informations sont utilisés pour remplir automatiquement avec les preset
 - Adresse de facturation
 - Pays du client
 - Taxes en lien avec le pays en question
-- plusieurs autres champs dont je ne me souvient pas
+- La liste des dossiers en lien avec le client (passés, en cours, à venir)
+- Combien un client à rapporté (chiffre d'affaire et bénéfices)
 
 **<u>Partie à valider</u>**
 
@@ -455,6 +533,24 @@ Les références fournisseur ne doivent pas être visible par les clients  de l'
 
 
 **<u>Partie à valider</u>**
+
+### Informations dans les paramètres 
+
+- la gestion des lignes de groupes
+  - Pouvoir utiliser des lignes simples, des saut de page ainsi que des lignes de groupes pré-existante
+  - Deux lignes de groupes ne doivent pas s'appeler l'une à l'autre, un message d'erreur est affiché si c'est le cas lors de enregistrement de la ligne de groupe
+- Gestion de relance
+  - Le temps par défaut avant un mail de relance
+    - Temps en jours ou mois
+    - 0 si il n'y a pas de relance
+  - Le preset de mail
+  - Ces deux choses ci dessus peuvent être édités dans le dossier si des adaptations indivduelles doivent pouvoir être faites
+  - Le nombre de relance avant la dernière
+  - Le preset de mail de dernière relance
+- Pouvoir choisir le mode sombre ou pas
+- Changer le nom de compte et de mot de passe
+- Changer/mettre le code de la base de donnée
+- 
 
 
 
@@ -648,138 +744,11 @@ graph TD
 
 
 
+### à faire : 
+
+- Avoir un mail pour pouvoir avoir accès à une version 7 jours gratuit afin d'avoir des infos sur ce dont on a besoin.
+- Avoir un nom d'entreprise
+- Avoir un logo
+- Vérifier l'ensemble des choses à mettre dans les paramètres, voire aussi pour chaque section de fonctionnalité quelles choses ajouter dans les paramètres
 
 
-
-
-### Random
-
-- Pouvoir voir l'argent que les clients doivent payer et l'argent que l'utilisateur doit aux fournisseur
-- Le prix unitaire des produits d'un devis accepté ne changent pas si les prix fournisseurs changent.
-
-
-
-
-### Informations dans les paramètres
-
-Avoir dans les settings :
-
-- la gestion des lignes de groupes
-  - Pouvoir utiliser des lignes simples, des saut de page ainsi que des lignes de groupes pré-existante
-  - Deux lignes de groupes ne doivent pas s'appeler l'une à l'autre, un message d'erreur est affiché si c'est le cas lors de enregistrement de la ligne de groupe
-- Gestion de relance
-  - Le temps par défaut avant un mail de relance
-    - Temps en jours ou mois
-    - 0 si il n'y a pas de relance
-  - Le preset de mail
-  - Ces deux choses ci dessus peuvent être édités dans le dossier si des adaptations indivduelles doivent pouvoir être faites
-  - Le nombre de relance avant la dernière
-  - Le preset de mail de dernière relance
-- Pouvoir choisir le mode sombre ou pas
-
-
-
-
-
-
-
-
-
-```mermaid
-stateDiagram-v2
-	[*] --> Créé
-	
-	state Créé{
-		direction TB
-        Brouillon -->Attente : Mail envoyé
-        Attente --> Accepté : Devis accepté par le client
-        Accepté --> Realisation : La réalisation du devis à commencé
-        Realisation --> Realisé : La réalisation et terminée, en attente du paiement
-        Realisé --> Payé : Réalisation terminée et le client à payé
-        Realisé --> NonPayé : Si la dernière relance à été envoyé
-        
-	}
-	
-	
-```
-
-
-
-
-
-
-
-
-
-connection : 
-- email 
-- mdp 
-
-Gestion des liscences
-- avistam = 400 € /an
-
-
-Tableau de bord :
-- Affichage chiffre d'affaire
-  - choix de la plage de donnée à afficher
-  - Affichage CA hors taxe/ paiement 
-  - Affichage de la ligne de croissance
-  - Affichage chiffre d'affaire de chaque an
-- Affichage des entrées et sorties (Entrée en positif et sortie en négatif)
-- Affichage de l'objectif 
-- Affichage du ou des solde banquaire
-- affichage du montant des devis validé non réalisés
-- Affichage des factures en retard de paiement
-  - Montant total
-  - Affichage des délais de retard (par plage de jours/mois etc)
-  - Quand cliqué sur une plage, affichage des différents devis non payés
-  - Pouvoir relancer
-    - Affichage du courrier avant-envoi
-    - Liaison du courier avec les conditions générales de ventes
-    - envoi par mail
-      - Recevoir une copie du mail
-      - Lier la facture
-    - Relance par courier 
-       - Besoin de crédit pour envoyer par courier
-       - Le logiciel fait tout (à voir si il y a un service avec la poste qui existe)
-  - Historique des relances
-
-
-Dossier :
-- Saisir un accompte pour le paiement avant la réalisation du dossier
-- Choisir à qui écrire lors des discussions des devis
-- Envoi du mail avec le devis et de la note lors d'une conversation
-- Envoi d'un mail à l'utilisateur lors d'un nouveau message
-- Afficher les articles qui n'ont pas étés actualisés depuis un certain temps (délai modifiable dans les paramêtres)
--  Lier les devis en état de commande aux commandes fournisseurs
-  - Logo coommande fournisseur pour faire les commandes aux fournisseur
-
-
-Filtres dans produits :
-- Rechercher le produit ou par fournisseur
-- 
-
-
-Commandes fournisseur gestion stock: 
-- Mettre un stock minimal pour faire des commandes
-
-Produits : 
-- Voir dans la liste : la dernière date d'actualisation
-- à partir d'un document fournisseur : actualiser automatiquement les prix de ces fournisseurs
-- Proposer à intégrer les articles qui ne sont pas dans la base de donnée
-
-Système de facture : 
-- Pouvoir prendre une photo de la facture et remplir à la main 
-
-
-  Relances : 
-  - Supplément lors de dernière relance (pénalité de retard de paiement)
-  - Afficher dans les relances, les retard de paiement
-
-
-
-Dans un dossier, cliquer sur les clients pour voir les infos et retrouver les autres devis, facture ou commandes...
-
-
-Courrier : 
-- Envoyer un mail aux clients d'un certain temps pour une vérification du matériel ou autre
