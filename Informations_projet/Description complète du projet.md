@@ -508,7 +508,8 @@ Un produit est stocké avec ces informations :
 - Texte pré-défini qui sera écrit dans un devis (pouvant être modifié manuellement sur le devis sans changer le texte enregistré)
 - Prix fournisseur
 - Marge de base
-- Prix HT après marge (la taxe n'est calculé que lors du devis en fonction de la taxe à appliquer)
+- Prix HT après marge (la taxe n'est calculé que lors du devis en fonction de la taxe à appliquer) ce prix n'est pas directement stocké, pour des raisons de place et de facilité, ce prix est juste calculé et affiché lorsque c'est nécessaire
+- Historique des prix
 
 
 
@@ -521,7 +522,7 @@ Les références fournisseur ne doivent pas être visible par les clients  de l'
 
 
 
-### **Information sur les services** 
+### **Informations sur les services** 
 
 - Nom du service 
 - Référence utilisateur
@@ -750,5 +751,7 @@ graph TD
 - Avoir un nom d'entreprise
 - Avoir un logo
 - Vérifier l'ensemble des choses à mettre dans les paramètres, voire aussi pour chaque section de fonctionnalité quelles choses ajouter dans les paramètres
+- Mettre au propre l'ensemble du dossier
+
 
 
