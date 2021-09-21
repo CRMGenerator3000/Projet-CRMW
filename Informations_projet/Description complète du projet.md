@@ -455,6 +455,7 @@ Les informations sont les suivantes :
   - Email
   - Nom 
   - Prénom
+  - Numéro Télephone
 
 
 
@@ -706,6 +707,18 @@ graph TD
 	ChxMess --> Envoi
 ```
 
+### Architecture appli
+
+```mermaid
+graph LR
+  HTML --> Affichage
+  CSS --> Affichage
+  JS --> Affichage 
+  Affichage --> PHP
+  JS --> PHP
+  PHP --> BDD
+  PHP --> Python
+```
 
 
 
