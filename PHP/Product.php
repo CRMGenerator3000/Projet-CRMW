@@ -1,5 +1,5 @@
 <?php
-class Product
+class Product // TODO extend a superclass shared with service too, so both services and product can be seen as the same object
 {
     # All mandatory attributes for an object creation
 

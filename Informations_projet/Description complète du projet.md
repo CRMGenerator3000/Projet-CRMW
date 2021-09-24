@@ -368,6 +368,8 @@ Le devis est daté du 14/10/2020
     - Licence payante par an
     - Licence payante à vie
 
+  - Gestion des réductions
+
   - Comparaison à des concurrent
     - Evoliz = 400 € /an
 
