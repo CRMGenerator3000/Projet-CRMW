@@ -1,33 +1,58 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Projet</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/fonts/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>ERP</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-light navbar-expand-lg navigation-clean-button">
-        <div class="container"><a class="navbar-brand" href="index.html">ERP</a><button data-bs-toggle="collapse" class="navbar-toggler" data-bs-target="#navcol-1"><span class="visually-hidden">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link active" href="creationDevis.html">Nouveau devis</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Mes devis</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="#">Produits &amp; Services</a></li>
-                </ul>
-                <div class="row g-0 justify-content-center align-items-center ms-auto" style="margin-top: 15px;transform: translate(0px) translateX(-4px) translateY(-8px) translateZ(0px);">
-                    <div class="col text-center d-flex justify-content-xl-center"><i class="fas fa-sun d-xl-flex align-items-xl-center" style="font-size: 24px;margin-right: 8px;"></i><div class="custom-control custom-switch"><input class="custom-control-input" type="checkbox" id="darkSwitch" /><label class="custom-control-label" for="darkSwitch"></label></div><i class="fas fa-moon d-xl-flex align-items-xl-center" style="font-size: 24px;"></i></div>
-                </div><span class="navbar-text actions"> <a class="login" href="#">Log In</a><a class="btn btn-light action-button" role="button" href="#">Sign Up</a></span>
+    <!-- Nav bar header -->
+    <header>
+        <img src="images/Accueil.webp" alt="Accueil" href="index.html">
+        <div>
+            <img src="images/login.webp" alt="Accueil" href="index.html">
+            <img src="images/setting.webp" alt="Accueil" href="index.html">
+            <img src="images/Docu.webp" alt="Accueil" href="index.html">
+            <img src="images/support.webp" alt="Accueil" href="index.html">
+
+        </div>
+    </header>
+    <div id="navSection">
+        <nav id="navigation">
+            <div>
+                <button>Mes dossiers</button>
+            </div>
+            <div>
+                <button>Mes produits</button>
+            </div>
+            <div>
+                <button>Nouveau devis</button>
+            </div>
+            <hr id="nav_hr">
+        </nav>
+    </div>
+    <div class="mainSection">
+        <div class="dettes_creances">
+            <div>
+                <h2>Créance client</h2>
+                <h2>100 000€</h2>
+            </div>
+            <div>
+                <h2>Dettes fournisseurs</h2>
+                <h2>100 000€</h2>
             </div>
         </div>
-    </nav>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/script.min.js"></script>
+        <figure class="graph_resume">
+            <div>
+                <img src="images/graph1.webp" alt="Productivitée">
+                <img src="images/graph2.webp" alt="benefices">
+            </div>
+            <figcaption>De bonnes performances</figcaption>
+        </figure>
+    </div>
 </body>
 
 </html>

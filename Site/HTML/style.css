@@ -1,0 +1,131 @@
+:root {
+    --background-color: rgb(228, 228, 228);
+    --headerHeight: 60px;
+    --nav-margin-vertical: 10px;
+    --nav-width: 200px;
+    --navigation-margin: 0.25em;
+}
+
+
+/* Body */
+
+body {
+    background-color: var(--background-color);
+    margin: 0px;
+}
+
+
+/* Header  */
+
+header {
+    height: var(--headerHeight);
+    display: flex;
+    align-items: center;
+    background-color: rgb(160, 160, 160);
+    width: 100%;
+}
+
+header div {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 90%;
+}
+
+header img {
+    height: 90%;
+    padding-right: 1em;
+}
+
+
+/* NavBar */
+
+#navSection {
+    background-color: white;
+    position: fixed;
+    min-width: var(--nav-width);
+    height: 100%;
+    border-right: solid;
+}
+
+#navigation {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--nav-margin-vertical);
+    margin-bottom: var(--nav-margin-vertical);
+    border-radius: 0% 15px 15px 0px;
+}
+
+#navigation div {
+    text-align: center;
+    margin: var(--navigation-margin);
+    /* background-color: rgb(100, 100, 100); */
+    border-radius: 30px;
+    min-height: 2em;
+}
+
+#navigation div button {
+    background-color: rgb(173, 173, 173);
+    border-radius: 30px;
+    width: 120px;
+    min-height: 2em;
+}
+
+#nav_hr {
+    background-color: grey;
+    height: 1px;
+    width: 80%;
+}
+
+
+/* Section principale */
+
+.mainSection {
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--nav-width);
+    box-shadow: inset 10px 0px 5px grey;
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+}
+
+.dettes_creances {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+
+.dettes_creances div {
+    margin: 10px;
+    min-width: 300px;
+    min-height: 150px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 2px grey;
+}
+
+.dettes_creances h2 {
+    text-align: center;
+}
+
+.graph_resume {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.graph_resume div {
+    display: flex;
+    flex-direction: row;
+}
+
+.graph_resume div img {
+    max-width: 500px;
+}
+
+.graph_resume figcaption {
+    text-align: center;
+    color: gray;
+    width: 70%;
+}
