@@ -7,6 +7,32 @@
 }
 
 
+/* Works on Firefox */
+
+
+/* 
+.mainSection {
+    height: 93.55vh;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: grey var(--background-color);
+}
+ */
+
+
+/* Works on Chrome, Edge, and Safari */
+
+
+/* .mainSection::-webkit-scrollbar {
+    width: 12px;
+}
+
+.mainSection::-webkit-scrollbar-thumb {
+    background-color: grey;
+    border-radius: 20px;
+} */
+
+
 /* Body */
 
 body {
@@ -17,15 +43,16 @@ body {
 
 /* Header  */
 
-header {
+header>div {
     height: var(--headerHeight);
+    position: fixed;
     display: flex;
     align-items: center;
     background-color: rgb(160, 160, 160);
     width: 100%;
 }
 
-header div {
+header>div>div {
     width: 100%;
     display: flex;
     flex-direction: row-reverse;
@@ -43,6 +70,8 @@ header img {
 #navSection {
     background-color: white;
     position: fixed;
+    top: var(--headerHeight);
+    left: 0px;
     min-width: var(--nav-width);
     height: 100%;
     border-right: solid;
@@ -56,7 +85,7 @@ header img {
     border-radius: 0% 15px 15px 0px;
 }
 
-#navigation div {
+#navSection div {
     text-align: center;
     margin: var(--navigation-margin);
     /* background-color: rgb(100, 100, 100); */
@@ -64,7 +93,7 @@ header img {
     min-height: 2em;
 }
 
-#navigation div button {
+#navSection div button {
     background-color: rgb(173, 173, 173);
     border-radius: 30px;
     width: 120px;
@@ -77,6 +106,10 @@ header img {
     width: 80%;
 }
 
+#titreAction {
+    text-align: center;
+}
+
 
 /* Section principale */
 
@@ -84,9 +117,9 @@ header img {
     display: flex;
     flex-direction: column;
     margin-left: var(--nav-width);
+    padding-top: var(--headerHeight);
     box-shadow: inset 10px 0px 5px grey;
-    width: 100%;
-    height: 100%;
+    width: 100% - var(--nav-width);
     min-height: 500px;
 }
 

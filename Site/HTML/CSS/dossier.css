@@ -1,0 +1,58 @@
+/* SubHeader */
+
+.subHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 10px auto;
+}
+
+.subHeader div {
+    background-color: grey;
+    border-radius: 20cm;
+    padding-left: 10px;
+    height: 30px;
+}
+
+.subHeader span {
+    vertical-align: sub;
+    font-size: large;
+}
+
+.subHeader :nth-child(1) {
+    margin-left: 10px;
+    flex: 3;
+}
+
+.subHeader :nth-child(2) {
+    margin-left: 10px;
+    margin-right: 10px;
+    flex: 2;
+}
+
+.subHeader :nth-child(3) {
+    margin-right: 10px;
+    flex: 1;
+}
+
+
+/* Content */
+
+.content {
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
+
+
+/* informations */
+
+.informations {
+    width: 100%;
+}
+
+.informations div {
+    background-color: rgb(141, 141, 141);
+    border-radius: 20px;
+    padding: 20px;
+}
