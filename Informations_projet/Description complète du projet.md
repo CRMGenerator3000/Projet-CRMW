@@ -27,19 +27,16 @@
 
 ## Description générale
 
-L'outil attendu est un CRM amélioré - Customer Relationship Management ou Gestion de relation client. Cet outil possède davantage de fonctionnalités que un CRM classique ainsi que des fonctionnalités en moins pour pouvoir se conformer aux besoin d'une micro-entreprise. (1 compte = 1 entreprise, pas de gestion de comptes et d'accès au sein d'une entreprise)
+L'outil attendu est un PGI (Progiciel de gestion intégré) combiné avec un CRM - Customer Relationship Management ou Gestion de relation client. Cet outil possède davantage de fonctionnalités que un CRM classique ainsi que des fonctionnalités en moins pour pouvoir se conformer aux besoin d'une micro-entreprise. (1 compte = 1 entreprise, pas de gestion de comptes et d'accès au sein d'une entreprise)
 
 Cet outil doit répondre à plusieurs critères :
 
-- Gestion des produits
+- Gestion des produits et services
 - Gestion des devis semi-automatisé
 - Gestion de la relation client
-- Gestion du chiffre d'affaire
+- Gestion et affichage des résultats et traitements des résultats de l'entreprise
 - Gestion des factures
 - Gestion des stock
-- **<u>Voir si il reste des choses à ajouter</u>**
-
-**<u>Partie à valider</u>**
 
 
 
