@@ -77,3 +77,33 @@
     padding: 1px 20px;
     margin: 2px 0px;
 }
+
+
+/* Devis  */
+
+.imgDevis div img {
+    max-width: 30vw;
+    max-height: 75vh;
+}
+
+.imgDevis figcaption {
+    text-align: center;
+    color: gray;
+}
+
+.imgDevis {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.imgDevis div {
+    display: flex;
+    flex-direction: row;
+}
+
+.devis {
+    background-color: rgb(141, 141, 141);
+    border-radius: 20px;
+    margin: 5px;
+}

@@ -7,32 +7,6 @@
 }
 
 
-/* Works on Firefox */
-
-
-/* 
-.mainSection {
-    height: 93.55vh;
-    overflow-y: scroll;
-    scrollbar-width: thin;
-    scrollbar-color: grey var(--background-color);
-}
- */
-
-
-/* Works on Chrome, Edge, and Safari */
-
-
-/* .mainSection::-webkit-scrollbar {
-    width: 12px;
-}
-
-.mainSection::-webkit-scrollbar-thumb {
-    background-color: grey;
-    border-radius: 20px;
-} */
-
-
 /* Body */
 
 body {
