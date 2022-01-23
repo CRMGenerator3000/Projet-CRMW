@@ -47,12 +47,33 @@
 
 /* informations */
 
-.informations {
+.informationsClient {
     width: 100%;
 }
 
-.informations div {
+.dossierSection {
+    height: fit-content;
     background-color: rgb(141, 141, 141);
     border-radius: 20px;
-    padding: 20px;
+    padding: 5px 20px;
+}
+
+.dossierSection h1 {
+    font-size: large;
+}
+
+.dossierSection h2 {
+    font-size: medium;
+}
+
+.dossierSection p {
+    line-height: 1.2;
+}
+
+.contactClient {
+    min-width: 100px;
+    background-color: rgb(182, 182, 182);
+    border-radius: 20px;
+    padding: 1px 20px;
+    margin: 2px 0px;
 }

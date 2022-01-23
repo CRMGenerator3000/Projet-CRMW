@@ -64,6 +64,10 @@ header img {
     padding-right: 1em;
 }
 
+header>div>a {
+    height: 90%;
+}
+
 
 /* NavBar */
 
