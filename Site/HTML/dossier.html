@@ -49,9 +49,14 @@
             <div>
                 <button>Changer d'état</button>
             </div>
+            <div>
+                <button>Télecharger le devis</button>
+            </div>
         </nav>
     </div>
+    <!-- Partie principale -->
     <div class="mainSection">
+        <!-- Infos principale -->
         <div class="subHeader">
             <div>
                 <span>Exemple de dossier</span>
@@ -63,41 +68,130 @@
                 <span>n° 03049</span>
             </div>
         </div>
+        <!-- Informations du dossier -->
         <div class="content">
-            <section class="informationsClient dossierSection">
-                <h1>Informations clients</h1>
-                <p>
-                    Entreprise : Jouet Club
-                    <br> Adresse : 12 rue des jouets
-                    <br> Pays : France
-                    <br> Taxe : 20%
-                    <br> Adresse de facturation : 123 avenue de l’amusement
-                </p>
-                <h2>Informations contacts</h2>
-                <div class="contactClient">
+            <!-- Informations partie de gauche -->
+            <div id="partieGauche">
+                <!-- Client -->
+                <section class="dossierSection" id="informationsClient">
+                    <h1>Informations clients</h1>
                     <p>
-                        Jean
-                        <br> Jack e-mail : jean-jack@JouetClub.fr
+                        Entreprise : Jouet Club
+                        <br> Adresse : 12 rue des jouets
+                        <br> Pays : France
+                        <br> Taxe : 20%
+                        <br> Adresse de facturation : 123 avenue de l'amusement
                     </p>
-                </div>
-                <div class="contactClient">
-                    <p>
-                        Dupond
-                        <br> Dupond e-mail : Dupond-Dupon@JouetClub.fr
-                    </p>
-                </div>
-            </section>
-            <div class="devis">
-                <figure class="imgDevis">
-                    <div>
-                        <img src="images/Devis.jpg" alt="Devis">
+                    <h2>Informations contacts</h2>
+                    <section id="sectionClient">
+                        <div class="contactClient spliter">
+                            <div>
+                                <p>
+                                    Jean
+                                    <br> Jack e-mail : jean-jack@JouetClub.fr
+                                </p>
+                            </div>
+                            <div class="tellephoneContact">
+                                +33 7 18 20 30 11
+                            </div>
+                        </div>
+                        <div class="contactClient">
+                            <p>
+                                Dupond
+                                <br> Dupond e-mail : Dupond-Dupon@JouetClub.fr
+                            </p>
+                        </div>
+                    </section>
+
+                </section>
+                <!-- Relances -->
+                <section class="dossierSection" id="relancesDossier">
+                    <h1>État des relances</h1>
+                    <div id="contentRelances" class="spliter">
+                        <section id="relanceGauche">
+                            <p>
+                                Nombre de relances : 5
+                                <br>Dernière relance après : 7 relances
+                                <br>Date de la relance précédente : 14/07/2021
+                            </p>
+                            <button>Modifier le mail de relance automatique</button>
+                            <button>Modifier le temps de relance</button>
+                        </section>
+                        <section id="relanceDroite">
+                            <p>
+                                Temp entre chaque relance : 5 mois
+                                <br>Date de la prochaine relance automatique: 14/12/2021
+                            </p>
+                            <button>Modifier le nombre de relance automatique avant la dernière</button>
+                            <button>Modifier le mail de dernière relance</button>
+                        </section>
                     </div>
-                    <figcaption></figcaption>
-                </figure>
+                </section>
+                <!-- Historique -->
+                <section class="dossierSection" id="historiqueDossier">
+                    <h1>Historique</h1>
+                    <table id="historiqueTable">
+                        <tr>
+                            <td class="historiqueRealise">Créé le : 20/02/2021</td>
+                            <td class="historiqueNonRealise">Passé en accepté le : N/A</td>
+                            <td class="historiqueNonRealise">Réalisé le : N/A</td>
+                        </tr>
+                        <tr>
+                            <td class="historiqueRealise">Passé en attente le : 17/05/2021</td>
+                            <td class="historiqueNonRealise">Passé en réalisation le : N/A</td>
+                            <td class="historiqueNonRealise">Payé le : N/A</td>
+                        </tr>
+                    </table>
+                </section>
             </div>
+            <!-- Information partie de droite -->
+            <div id="partieDroite">
+                <div class="devis">
+                    <figure class="imgDevis">
+                        <div>
+                            <img src="images/Devis.jpg" alt="Devis">
+                        </div>
+                        <figcaption></figcaption>
+                    </figure>
+                </div>
+            </div>
+
         </div>
 
     </div>
+    <footer>
+        <!-- ChatBox -->
+        <button class="chatBoxButton" onclick="chatBox();">
+            <img src="images/ChatButton.png" alt="chatBoxButtonImmage">
+            Discussion
+        </button>
+    </footer>
 </body>
+
+<script>
+    let chatBoxOpen = false;
+
+    function chatBox() {
+        if (chatBoxOpen) {
+            const chatbox = document.getElementById('chatbox');
+            document.body.removeChild(chatbox);
+            chatBoxOpen = false;
+        } else {
+            const chatbox = document.createElement('div');
+            chatbox.innerHTML = "ChatBox";
+            chatbox.id = "chatbox";
+            chatbox.style.position = "fixed";
+            chatbox.style.bottom = "80px";
+            chatbox.style.right = "30px";
+            chatbox.style.width = "30vw";
+            chatbox.style.height = "70vh";
+            chatbox.style.backgroundColor = "rgb(182, 182, 182)";
+            chatbox.style.color = "black";
+            chatbox.style.borderRadius = "20px"
+            document.body.appendChild(chatbox);
+            chatBoxOpen = true;
+        }
+    }
+</script>
 
 </html>
