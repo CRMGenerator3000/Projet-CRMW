@@ -168,3 +168,14 @@ header>div>a {
     height: 30px;
     vertical-align: middle;
 }
+
+#chatbox {
+    position: fixed;
+    bottom: 80px;
+    right: 0px;
+    width: 35vw;
+    height: 80vh;
+    border: 3px solid black;
+    background-color: rgb(182, 182, 182);
+    color: black;
+}

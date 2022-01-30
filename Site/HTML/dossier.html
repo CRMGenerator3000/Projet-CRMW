@@ -159,7 +159,7 @@
         </div>
 
     </div>
-    <footer>
+    <footer id="footer">
         <!-- ChatBox -->
         <button class="chatBoxButton" onclick="chatBox();">
             <img src="images/ChatButton.png" alt="chatBoxButtonImmage">
@@ -174,21 +174,13 @@
     function chatBox() {
         if (chatBoxOpen) {
             const chatbox = document.getElementById('chatbox');
-            document.body.removeChild(chatbox);
+            document.getElementById("footer").removeChild(chatbox);
             chatBoxOpen = false;
         } else {
             const chatbox = document.createElement('div');
-            chatbox.innerHTML = "ChatBox";
-            chatbox.id = "chatbox";
-            chatbox.style.position = "fixed";
-            chatbox.style.bottom = "80px";
-            chatbox.style.right = "30px";
-            chatbox.style.width = "30vw";
-            chatbox.style.height = "70vh";
-            chatbox.style.backgroundColor = "rgb(182, 182, 182)";
-            chatbox.style.color = "black";
-            chatbox.style.borderRadius = "20px"
-            document.body.appendChild(chatbox);
+            chatbox.innerHTML = "ChatBox ";
+            chatbox.id = "chatbox ";
+            document.getElementById("footer").appendChild(chatbox);
             chatBoxOpen = true;
         }
     }
