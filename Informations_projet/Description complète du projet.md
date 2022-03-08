@@ -764,6 +764,3 @@ graph LR
 - Avoir un logo
 - Vérifier l'ensemble des choses à mettre dans les paramètres, voire aussi pour chaque section de fonctionnalité quelles choses ajouter dans les paramètres
 - Mettre au propre l'ensemble du dossier
-
-
-
