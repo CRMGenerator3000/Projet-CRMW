@@ -1,0 +1,56 @@
+{
+    "Connection": {
+        "Headers": {
+            "Content-type": "application/json; charset=UTF-8",
+            "Access-Control-Allow-Origin": "http://localhost/",
+            "Access-Control-Allow-Methods": "GET, PUT, POST, DELETE"
+        }
+    },
+    "Database": {
+        "host": "localhost",
+        "port": "3306",
+        "dbname": "pgiacc_test",
+        "user": "pgiacc_test",
+        "password": "#NoL#N79dncmnNQT"
+    },
+    "Class": [{
+            "name": "Dossier",
+            "attributes": [
+                "num_dossier",
+                "titre_dossier",
+                "info_client",
+                "devis",
+                "nb_relances",
+                "mail_preset",
+                "temps_relance",
+                "mail_preset_derniere_relance",
+                "date_derniere_relance",
+                "eta_dossier",
+                "historique_eta",
+                "liste_etiquette"
+            ]
+        },
+        {
+            "name": "Info_client",
+            "attributes": [
+                "nom_entreprise",
+                "addresse_siege",
+                "info_contact",
+                "addresse_facturation",
+                "pays_client",
+                "taxe_pays",
+                "liste_dossier",
+                "chiffe_affaire"
+            ]
+        },
+        {
+            "name": "Info_Contact",
+            "attributes": [
+                "nom_contact",
+                "prenom_contact",
+                "email_contact",
+                "tel_contact"
+            ]
+        }
+    ]
+}
