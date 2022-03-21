@@ -35,7 +35,7 @@
             "attributes": [
                 "nom_entreprise",
                 "addresse_siege",
-                "info_contact",
+                "liste_info_contact",
                 "addresse_facturation",
                 "pays_client",
                 "taxe_pays",
@@ -50,6 +50,17 @@
                 "prenom_contact",
                 "email_contact",
                 "tel_contact"
+            ]
+        }, {
+            "name": "Ligne_devis",
+            "attributes": [
+                "liste_lignes"
+            ]
+        }, {
+            "name": "Feuille_ligne_devis",
+            "attributes": [
+                "type",
+                "produit_service"
             ]
         }
     ]
