@@ -1,0 +1,181 @@
+:root {
+    --background-color: rgb(228, 228, 228);
+    --firstItemBackground: rgb(141, 141, 141);
+    --secondItemBackground: rgb(182, 182, 182);
+    --headerHeight: 60px;
+    --nav-margin-vertical: 10px;
+    --nav-width: 200px;
+    --navigation-margin: 0.25em;
+}
+
+
+/* Body */
+
+body {
+    background-color: var(--background-color);
+    margin: 0px;
+}
+
+
+/* Header  */
+
+header>div {
+    height: var(--headerHeight);
+    position: fixed;
+    display: flex;
+    align-items: center;
+    background-color: rgb(160, 160, 160);
+    width: 100%;
+    border: solid;
+    border-bottom-width: 3px;
+    border-top-width: 0px;
+    border-right-width: 0px;
+    border-left-width: 0px;
+}
+
+header>div>div {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    height: 90%;
+}
+
+header img {
+    height: 90%;
+    padding-right: 1em;
+}
+
+header>div>a {
+    height: 90%;
+}
+
+
+/* NavBar */
+
+#navSection {
+    background-color: white;
+    position: fixed;
+    top: var(--headerHeight);
+    left: 0px;
+    min-width: var(--nav-width);
+    height: 100%;
+    border-right: solid;
+}
+
+#navigation {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--nav-margin-vertical);
+    margin-bottom: var(--nav-margin-vertical);
+    border-radius: 0% 15px 15px 0px;
+}
+
+#navSection div {
+    text-align: center;
+    margin: var(--navigation-margin);
+    /* background-color: rgb(100, 100, 100); */
+    border-radius: 30px;
+    min-height: 2em;
+}
+
+
+/* TODO bouton bordure doit pas être visible */
+
+#navSection div button {
+    /* background-color: rgb(173, 173, 173); */
+    /* border-radius: 30px; */
+    width: 120px;
+    min-height: 2em;
+}
+
+#nav_hr {
+    background-color: grey;
+    height: 1px;
+    width: 80%;
+}
+
+#titreAction {
+    text-align: center;
+}
+
+
+/* Section principale */
+
+.mainSection {
+    display: flex;
+    flex-direction: column;
+    margin-left: var(--nav-width);
+    padding-top: var(--headerHeight);
+    box-shadow: inset 10px 0px 5px grey;
+    width: 100% - var(--nav-width);
+    min-height: 500px;
+}
+
+.dettes_creances {
+    display: flex;
+    flex-direction: row;
+    margin-left: 50px;
+}
+
+.dettes_creances div {
+    margin: 10px;
+    min-width: 300px;
+    min-height: 150px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 2px grey;
+}
+
+.dettes_creances h2 {
+    text-align: center;
+}
+
+.graph_resume {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.graph_resume div {
+    display: flex;
+    flex-direction: row;
+}
+
+.graph_resume div img {
+    max-width: 500px;
+}
+
+.graph_resume figcaption {
+    text-align: center;
+    color: gray;
+    width: 70%;
+}
+
+
+/* ChatBox */
+
+.chatBoxButton {
+    background-color: var(--firstItemBackground);
+    position: fixed;
+    bottom: 10px;
+    right: 20px;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.chatBoxButton img {
+    height: 30px;
+    vertical-align: middle;
+}
+
+#chatbox {
+    position: fixed;
+    bottom: 80px;
+    right: 0px;
+    width: 35vw;
+    height: 80vh;
+    border: 3px solid black;
+    background-color: rgb(182, 182, 182);
+    color: black;
+}

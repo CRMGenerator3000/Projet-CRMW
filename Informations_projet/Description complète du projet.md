@@ -569,7 +569,7 @@ Les références fournisseur ne doivent pas être visible par les clients  de l'
 
 ``` mermaid
 graph TD
-	linkStyle default interpolate basis
+	<linkStyle default interpolate basis
 	Devis[Devis] --> PresetC{{Inscription du preset client ?}};
 	PresetC --> |Oui| InfoC[Informations client inscrit];
 	PresetC --> |Non| InfoCMain[Informations client inscrit à la main];

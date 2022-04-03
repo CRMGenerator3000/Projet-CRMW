@@ -1,0 +1,199 @@
+:root {
+    --subHeaderHeight: 30px;
+    --subHeaderMarginVertial: 10px;
+    --contentMargin: 10px;
+}
+
+
+/* SubHeader */
+
+.subHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: var(--subHeaderMarginVertial) auto;
+    overflow-y: hidden;
+}
+
+.subHeader div {
+    background-color: var(--firstItemBackground);
+    border-radius: 20cm;
+    padding-left: 10px;
+    height: var(--subHeaderHeight);
+}
+
+.subHeader span {
+    vertical-align: sub;
+    font-size: large;
+}
+
+.subHeader :nth-child(1) {
+    margin-left: 10px;
+    flex: 3;
+}
+
+.subHeader :nth-child(2) {
+    margin-left: 10px;
+    margin-right: 10px;
+    flex: 2;
+}
+
+.subHeader :nth-child(3) {
+    margin-right: 10px;
+    flex: 1;
+}
+
+
+/* Content */
+
+.content {
+    display: flex;
+    margin: var(--contentMargin);
+    justify-content: space-between;
+    column-gap: 30px;
+}
+
+
+/* informations */
+
+#partieGauche {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    width: 100%;
+    overflow-y: scroll;
+    height: calc(100vh - var(--headerHeight) - var(--subHeaderHeight) - var(--subHeaderMarginVertial) - var(--subHeaderMarginVertial) - var(--contentMargin) - 10px);
+}
+
+.dossierSection {
+    height: fit-content;
+    background-color: var(--firstItemBackground);
+    border-radius: 20px;
+    padding: 5px 20px;
+}
+
+.dossierSection h1 {
+    font-size: large;
+}
+
+.dossierSection h2 {
+    font-size: medium;
+}
+
+.dossierSection p {
+    line-height: 1.2;
+}
+
+.contactClient {
+    min-width: 100px;
+    background-color: var(--secondItemBackground);
+    border-radius: 20px;
+    padding: 1px 20px;
+    height: 70px;
+}
+
+.contactClient div {
+    width: 100%;
+}
+
+#sectionClient {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+}
+
+.tellephoneContact {
+    width: 100%;
+    height: 100%;
+    font-size: larger;
+    padding-right: 20px;
+    text-align: right;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+
+/* General */
+
+.spliter {
+    display: flex;
+    flex-direction: row;
+}
+
+
+/* Relance Section */
+
+#contentRelances {
+    column-gap: 10px;
+}
+
+#contentRelances section {
+    width: 50%;
+}
+
+#relancesDossier {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0px;
+}
+
+#relancesDossier button {
+    background-color: var(--secondItemBackground);
+    border-radius: 30px;
+    min-height: 2em;
+}
+
+
+/* Devis  */
+
+.imgDevis div img {
+    max-width: 30vw;
+    max-height: 75vh;
+}
+
+.imgDevis figcaption {
+    text-align: center;
+    color: gray;
+}
+
+.imgDevis {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+}
+
+.imgDevis div {
+    display: flex;
+    flex-direction: row;
+}
+
+.devis {
+    background-color: var(--firstItemBackground);
+    border-radius: 20px;
+    padding: 5px;
+}
+
+
+/* Historique */
+
+#historiqueTable {
+    width: 100%;
+}
+
+#historiqueTable tr {
+    width: 33%;
+}
+
+#historiqueTable td {
+    height: 15px;
+}
+
+.historiqueRealise {
+    color: black;
+}
+
+.historiqueNonRealise {
+    color: rgb(73, 73, 73);
+}

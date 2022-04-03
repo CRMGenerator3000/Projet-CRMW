@@ -3,8 +3,8 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="CSS/normalize.css" />
-    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="assets/CSS/normalize.css" />
+    <link rel="stylesheet" href="assets/CSS/style.css" />
     <title>ERP</title>
 </head>
 
@@ -12,13 +12,13 @@
     <!-- Nav bar header -->
     <header>
         <div>
-            <a href="index.html"><img src="images/Accueil.webp" alt="Accueil"></a>
+            <a href="index.html"><img src="assets/images/Accueil.webp" alt="Accueil"></a>
             <div>
-                <a href="index.html"><img src="images/login.webp" alt="Accueil"></a>
-                <a href="index.html"><img src="images/setting.webp" alt="Accueil"></a>
-                <a href="index.html"><img src="images/Docu.webp" alt="Accueil"></a>
-                <a href="index.html"><img src="images/support.webp" alt="Accueil"></a>
-                <a href="index.html"><img src="images/DarkModeLight.png"></a>
+                <a href="?action=login&controller=Sign"><img src="assets/images/login.webp" alt="Accueil"></a>
+                <a href="index.html"><img src="assets/images/setting.webp" alt="Accueil"></a>
+                <a href="index.html"><img src="assets/images/Docu.webp" alt="Accueil"></a>
+                <a href="index.html"><img src="assets/images/support.webp" alt="Accueil"></a>
+                <a href="index.html"><img src="assets/images/DarkModeLight.png" alt="DarkButton"></a>
             </div>
         </div>
     </header>
@@ -38,11 +38,15 @@
     </div>
     <div class="mainSection">
         <!-- infos -->
+        <?php   
+        $filepath = File::build_path(array("view", $controller, $view));
+        
+        ?>
     </div>
     <footer>
         <!-- ChatBox -->
         <button class="chatBoxButton">
-            <img src="images/ChatButton.png" alt="chatBoxButtonImmage">
+            <img src="assets/images/ChatButton.png" alt="chatBoxButtonImmage">
             Discussion
         </button>
     </footer>
