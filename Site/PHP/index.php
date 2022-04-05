@@ -11,4 +11,4 @@ class File{
   
   }
 include_once File::build_path(array("assets","Script","Debug.php"));
-require_once File::build_path(array("Controler", "router.php"));
+require_once File::build_path(array("Controller", "router.php"));

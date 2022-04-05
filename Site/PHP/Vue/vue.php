@@ -12,13 +12,13 @@
     <!-- Nav bar header -->
     <header>
         <div>
-            <a href="index.html"><img src="assets/images/Accueil.webp" alt="Accueil"></a>
+            <a href="index.php"><img src="assets/images/Accueil.webp" alt="Accueil"></a>
             <div>
-                <a href="?action=login&controller=Sign"><img src="assets/images/login.webp" alt="Accueil"></a>
-                <a href="index.html"><img src="assets/images/setting.webp" alt="Accueil"></a>
-                <a href="index.html"><img src="assets/images/Docu.webp" alt="Accueil"></a>
-                <a href="index.html"><img src="assets/images/support.webp" alt="Accueil"></a>
-                <a href="index.html"><img src="assets/images/DarkModeLight.png" alt="DarkButton"></a>
+                <a href="index.php?Controller=Sign&action=Login"><img src="assets/images/login.webp" alt="Accueil"></a>
+                <a href="index.php"><img src="assets/images/setting.webp" alt="Accueil"></a>
+                <a href="index.php"><img src="assets/images/Docu.webp" alt="Accueil"></a>
+                <a href="index.php"><img src="assets/images/support.webp" alt="Accueil"></a>
+                <a href="index.php"><img src="assets/images/DarkModeLight.png" alt="DarkButton"></a>
             </div>
         </div>
     </header>

@@ -1,6 +1,7 @@
 <?php
 // Fonction de génération d'une requete Insert SQL
-function generateInsertSQL($table, $columns, $values) {
+function generateInsertSQL($table, $columns, $values)
+{
     $sql = "INSERT INTO $table (";
     foreach ($columns as $column) {
         $sql .= $column . ", ";
@@ -21,7 +22,8 @@ function generateInsertSQL($table, $columns, $values) {
  * @param $columns array nom des colonnes à sélectionner exemple : "role.id" ou "role.name"
  * @param $where array tableau associatif contenant les conditions exemple : array("login" => "admin", "password" => "admin")
  */
-function generateSelectSQL($table, $columns, $where) {
+function generateSelectSQL($table, $columns, $where)
+{
     $sql = "SELECT ";
     foreach ($columns as $column) {
         $sql .= $column . ", ";
@@ -35,7 +37,8 @@ function generateSelectSQL($table, $columns, $where) {
 }
 
 // Fonction de génération d'une requete Update SQL
-function generateUpdateSQL($table, $columns, $values, $where) {
+function generateUpdateSQL($table, $columns, $values, $where)
+{
     $sql = "UPDATE $table SET ";
     $i = 0;
     foreach ($columns as $column) {
@@ -46,3 +49,5 @@ function generateUpdateSQL($table, $columns, $values, $where) {
     $sql .= " WHERE " . $where;
     return $sql;
 }
+
+
